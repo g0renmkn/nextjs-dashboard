@@ -79,6 +79,11 @@ export async function fetchCardData() {
     const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
     const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
 
+    // This is only to add an artificial delay
+    console.log('Fetching card data...');
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    console.log('Data fetch completed after 1.5 seconds.');
+
     return {
       numberOfCustomers,
       numberOfInvoices,
